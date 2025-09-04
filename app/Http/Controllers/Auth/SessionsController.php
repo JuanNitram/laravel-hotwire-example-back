@@ -45,6 +45,11 @@ class SessionsController extends Controller
         RateLimiter::clear($this->throttleKey($request));
         Session::regenerate();
 
+        // For Hotwire Native, ensure we redirect properly
+        if ($request->wasFromHotwireNative()) {
+            return redirect()->route('dashboard');
+        }
+
         return redirect()->intended(default: route('dashboard', absolute: false));
     }
 

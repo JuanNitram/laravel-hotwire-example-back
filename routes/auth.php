@@ -15,9 +15,6 @@ Route::middleware('guest')->group(function () {
     Route::post('login', [SessionsController::class, 'store'])
         ->name('login.store');
 
-    Route::post('logout', [SessionsController::class, 'destroy'])
-        ->name('logout');
-
     Route::get('register', [RegistrationController::class, 'create'])
         ->name('register');
 
@@ -38,6 +35,9 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+    Route::post('logout', [SessionsController::class, 'destroy'])
+        ->name('logout');
+
     Route::get('verify-email', [VerifyEmailController::class, 'show'])
         ->name('verification.notice');
 
@@ -56,6 +56,3 @@ Route::middleware('auth')->group(function () {
         ->middleware('throttle:6,1')
         ->name('password.confirm.store');
 });
-
-Route::post('logout', [SessionsController::class, 'destroy'])
-    ->name('logout');
