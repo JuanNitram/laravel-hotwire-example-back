@@ -71,6 +71,22 @@
                     <p class="text-sm text-gray-500">Due today</p>
                 </div>
             </x-card>
+
+            <!-- Task 2 -->
+            <x-card class="p-6 hover:shadow-md transition-shadow cursor-pointer">
+                <div class="flex flex-col gap-2">
+                    <h4 class="font-medium text-gray-900">Arrange Christmas Endcap</h4>
+                    <p class="text-sm text-gray-500">Due today</p>
+                </div>
+            </x-card>
+
+            <!-- Task 2 -->
+            <x-card class="p-6 hover:shadow-md transition-shadow cursor-pointer">
+                <div class="flex flex-col gap-2">
+                    <h4 class="font-medium text-gray-900">Arrange Christmas Endcap</h4>
+                    <p class="text-sm text-gray-500">Due today</p>
+                </div>
+            </x-card>
         </div>
     </div>
 </x-layouts.app>
