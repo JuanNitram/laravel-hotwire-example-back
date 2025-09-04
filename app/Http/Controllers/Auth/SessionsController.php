@@ -26,15 +26,6 @@ class SessionsController extends Controller
      */
     public function store(Request $request)
     {
-        // Debug logging
-        \Log::info('Login attempt', [
-            'email' => $request->input('email'),
-            'has_password' => !empty($request->input('password')),
-            'remember' => $request->boolean('remember'),
-            'user_agent' => $request->userAgent(),
-            'ip' => $request->ip(),
-        ]);
-
         $request->validate([
             'email' => ['required', 'string', 'email'],
             'password' => ['required', 'string'],
@@ -43,7 +34,6 @@ class SessionsController extends Controller
         $this->ensureIsNotRateLimited($request);
 
         if (! Auth::attempt($request->only(['email', 'password']), $request->boolean('remember'))) {
-            \Log::warning('Login failed for email: ' . $request->input('email'));
             RateLimiter::hit($this->throttleKey($request));
 
             throw ValidationException::withMessages([
@@ -51,7 +41,6 @@ class SessionsController extends Controller
             ]);
         }
 
-        \Log::info('Login successful for email: ' . $request->input('email'));
         RateLimiter::clear($this->throttleKey($request));
         Session::regenerate();
 
