@@ -89,26 +89,28 @@
                 @include('partials.notifications')
 
                 <div class="flex-1 m-0 lg:m-2 rounded shadow bg-base-200 lg:border lg:dark:border-white/5 lg:border-black/10">
-                    <div class="flex ml-2 mr-6 mt-2 lg:hidden items-center space-x-2 justify-between">
-                        <div class="flex items-center space-x-2">
-                            <x-drawer.toggle for="main-sidebar" icon="bars-3" class="lg:hidden px-2.5 [&>div>svg]:size-5! [&>div>svg]:mr-0! h-10" />
+                    @unlesshotwirenative
+                        <div class="flex ml-2 mr-6 mt-2 lg:hidden items-center space-x-2 justify-between">
+                            <div class="flex items-center space-x-2">
+                                <x-drawer.toggle for="main-sidebar" icon="bars-3" class="lg:hidden px-2.5 [&>div>svg]:size-5! [&>div>svg]:mr-0! h-10" />
 
-                            <a href="{{ route('dashboard') }}" class="flex items-center space-x-2">
-                                <x-app-logo />
-                            </a>
+                                <a href="{{ route('dashboard') }}" class="flex items-center space-x-2">
+                                    <x-app-logo />
+                                </a>
+                            </div>
+
+                            <ul class="flex items-center space-x-2">
+                                <x-navbar.item icon="magnifying-glass" href="#" class="px-2.5 [&>div>svg]:size-5! [&>div>svg]:mr-0! h-10 text-base-content/50">
+                                    <span class="sr-only">{{ __('Search') }}</span>
+                                </x-navbar.item>
+
+                                <a href="{{ route('settings') }}">
+                                    <x-profile :initials="auth()->user()->initials()" class="p-0!" />
+                                    <span class="sr-only">{{ auth()->user()->name }}</span>
+                                </a>
+                            </ul>
                         </div>
-
-                        <ul class="flex items-center space-x-2">
-                            <x-navbar.item icon="magnifying-glass" href="#" class="px-2.5 [&>div>svg]:size-5! [&>div>svg]:mr-0! h-10 text-base-content/50">
-                                <span class="sr-only">{{ __('Search') }}</span>
-                            </x-navbar.item>
-
-                            <a href="{{ route('settings') }}">
-                                <x-profile :initials="auth()->user()->initials()" class="p-0!" />
-                                <span class="sr-only">{{ auth()->user()->name }}</span>
-                            </a>
-                        </ul>
-                    </div>
+                    @endunlesshotwirenative
 
                     {{ $slot }}
                 </div>
