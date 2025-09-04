@@ -24,9 +24,9 @@
                     <x-form.label for="password">{{ __('Password') }}</x-form.label>
 
                     @if (Route::has('password.request'))
-                        <x-link class="text-sm" :href="route('password.request')">
+                        <a href="{{ route('password.request') }}" class="text-sm font-medium text-blue-600 hover:text-blue-500 underline underline-offset-4">
                             {{ __('Forgot your password?') }}
-                        </x-link>
+                        </a>
                     @endif
                 </div>
 
@@ -45,12 +45,5 @@
                 <x-form.button.primary type="submit" class="w-full">{{ __('Log in') }}</x-form.button.primary>
             </div>
         </form>
-
-        @if (Route::has('register'))
-            <div class="space-x-1 text-center text-sm text-base-600">
-                {{ __('Don\'t have an account?') }}
-                <x-link :href="route('register')">{{ __('Sign up') }}</x-link>
-            </div>
-        @endif
     </div>
 </x-layouts.auth>

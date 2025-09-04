@@ -22,9 +22,9 @@
                 class="w-full">{{ __('Email password reset link') }}</x-form.button.primary>
         </form>
 
-        <div class="space-x-1 text-center text-sm text-base-400">
+        <div class="space-x-1 text-center text-sm text-gray-500">
             {{ __('Or, return to') }}
-            <x-link :href="route('login')">{{ __('log in') }}</x-link>
+            <a href="{{ route('login') }}" class="font-medium text-blue-600 hover:text-blue-500 underline underline-offset-4">{{ __('log in') }}</a>
         </div>
     </div>
 </x-layouts.auth>

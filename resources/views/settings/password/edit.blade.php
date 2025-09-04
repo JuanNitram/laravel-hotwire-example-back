@@ -1,12 +1,8 @@
 <x-layouts.app :title="__('Update password')">
     <section class="w-full lg:max-w-lg mx-auto">
-        @unlesshotwirenative
-        <x-back-link :href="route('settings')">{{ __('Profile & Settings') }}</x-back-link>
-        <x-text.heading size="xl">{{ __('Update password') }}</x-text.heading>
-        @endunlesshotwirenative
         <x-text.subheading>{{ __('Ensure your account is using a long, random password to stay secure') }}</x-text.subheading>
 
-        <x-page-card class="my-6">
+        <x-card class="my-6 p-6">
             <form action="{{ route('settings.password.update') }}" method="post" class="space-y-6" data-controller="bridge--form" data-action="turbo:submit-start->bridge--form#submitStart turbo:submit-end->bridge--form#submitEnd">
                 @csrf
                 @method('put')
@@ -69,6 +65,6 @@
                     </div>
                 </div>
             </form>
-        </x-page-card>
+        </x-card>
     </section>
 </x-layouts.app>

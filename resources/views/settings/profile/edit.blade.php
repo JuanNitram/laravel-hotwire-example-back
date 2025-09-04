@@ -1,12 +1,8 @@
 <x-layouts.app :title="__('Profile')">
     <section class="w-full lg:max-w-lg mx-auto">
-        @unlesshotwirenative
-        <x-back-link :href="route('settings')">{{ __('Profile & Settings') }}</x-back-link>
-        <x-text.heading size="xl">{{ __('Profile') }}</x-text.heading>
-        @endunlesshotwirenative
         <x-text.subheading>{{ __('Update your name and email address') }}</x-text.subheading>
 
-        <x-page-card class="my-6">
+        <x-card class="my-6 p-6">
             <form action="{{ route('settings.profile.update') }}" method="post" class="w-full space-y-6" data-controller="bridge--form" data-action="turbo:submit-start->bridge--form#submitStart turbo:submit-end->bridge--form#submitEnd">
                 @csrf
                 @method('put')
@@ -67,7 +63,7 @@
                     </div>
                 </div>
             </form>
-        </x-page-card>
+        </x-card>
 
         <form action="{{ route('verification.resend') }}" method="post" id="resend-email-verification">
             @csrf

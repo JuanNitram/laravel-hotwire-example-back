@@ -19,10 +19,6 @@
                     <div class="mx-auto w-full h-full [:where(&)]:max-w-7xl px-6 lg:px-8 flex items-center">
                         <x-drawer.toggle for="main-sidebar" icon="bars-3" class="lg:hidden px-2.5 [&>div>svg]:size-5! [&>div>svg]:mr-0! h-10" />
 
-                        <a href="{{ route('dashboard') }}" class="ml-2 mr-5 flex items-center space-x-2 lg:ml-0">
-                            <x-app-logo />
-                        </a>
-
                         <x-navbar class="-mb-px max-lg:hidden">
                             <x-navbar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')">
                                 <span>{{ __('Dashboard') }}</span>
@@ -107,10 +103,6 @@
                 <div class="flex items-center space-x-2">
                     <x-drawer.toggle for="main-sidebar" icon="x-mark" class="lg:hidden px-2 [&>div>svg]:size-5! [&>div>svg]:mr-0! h-10" />
                 </div>
-
-                <a href="{{ route('dashboard') }}" class="flex items-center space-x-2 px-1.5 my-4">
-                    <x-app-logo />
-                </a>
 
                 <x-sidebar.navlist class="px-0">
                     <x-sidebar.navlist-item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')">{{ __('Dashboard') }}</x-sidebar>

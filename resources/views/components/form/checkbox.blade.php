@@ -4,7 +4,7 @@
     <input {{ $attributes->merge([
         'id' => $id, 
         'type' => 'checkbox', 
-        'class' => 'peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground'
+        'class' => 'peer h-4 w-4 shrink-0 rounded-sm border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:cursor-not-allowed disabled:opacity-50 checked:bg-blue-600 checked:border-blue-600'
     ]) }} />
     @if($label)
         <label for="{{ $id }}" class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
@@ -12,6 +12,6 @@
         </label>
     @endif
     @if($description)
-        <p class="text-sm text-muted-foreground">{{ $description }}</p>
+        <p class="text-sm text-gray-500">{{ $description }}</p>
     @endif
 </div>
